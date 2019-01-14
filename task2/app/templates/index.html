@@ -2,5 +2,17 @@
 <body>
     <p>Hi there!</p>
     <p>It works!</p>
+    <table border=1>
+        <tr>
+            <th>salary_brutto</th>
+            <th>worked_years</th>
+        </tr>
+        {% for query in estimate %}
+            <tr>
+                <td>{{ query.salary_brutto }}</td>
+                <td>{{ query.worked_years }}</td>
+            </tr>
+        {% endfor %}
+    </table> 
 </body>
 </html>
