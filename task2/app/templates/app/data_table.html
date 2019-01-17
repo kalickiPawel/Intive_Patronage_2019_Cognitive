@@ -1,8 +1,8 @@
-<html>
-<body>
-    <p>Hi there!</p>
-    <p>It works!</p>
-    <table border=1>
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <table class="data-table">
+        <caption>Lista pobrana z bazy danych</caption>
         <tr>
             <th>salary_brutto</th>
             <th>worked_years</th>
@@ -14,5 +14,4 @@
             </tr>
         {% endfor %}
     </table> 
-</body>
-</html>
+{% endblock %}
