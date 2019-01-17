@@ -1,0 +1,23 @@
+.data-table {
+    border: 2px solid rgb(0, 60, 255);
+    border-radius: 5px;
+    width: 30%;
+    margin: 0px auto;
+    float: none;
+}
+.data-table td, .data-table th {
+    border: 2px solid rgb(0, 60, 255);
+}
+.data-table th {
+    background-color:rgb(191, 206, 255);
+}
+td, th{
+    text-align: center;
+}
+h1 a {
+    color: rgb(14, 86, 168);
+}
+a:hover {
+    color: rgb(0, 164, 240);
+    text-decoration : none;
+}
