@@ -28,3 +28,6 @@ a:hover {
     color: rgb(0, 164, 240);
     text-decoration : none;
 }
+nav a{
+    color: white;
+}
