@@ -58,7 +58,7 @@ coverage.xml
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
+#db.sqlite3  <-- uncomment in production mode, only for development mode
 media
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
