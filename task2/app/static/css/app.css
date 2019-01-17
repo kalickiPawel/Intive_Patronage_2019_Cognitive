@@ -11,7 +11,14 @@
 .data-table th {
     background-color:rgb(191, 206, 255);
 }
-td, th{
+.project_logo {
+    width: 424px;
+    height: 181px;
+    margin: 0px auto;
+    background-image: url('https://www.wi.zut.edu.pl/images/2018/studenci/patronage_2018n.jpg');
+    background-size: contain;
+}
+td, th {
     text-align: center;
 }
 h1 a {
