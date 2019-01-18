@@ -11,18 +11,26 @@ def run():
                 if os.path.isfile(FILENAME):
                         with open(FILENAME) as csvfile:
                                 reader = csv.DictReader(csvfile)
-                                earnings = Earning.objects.all().delete()
+                                earning = Earning.objects.all().delete()
+                                estimate = Estimate.objects.all().delete()
+
+                                salary = []
+                                pred_years = []
+                                years = []
+
                                 for row in reader:
                                         try:
-                                                salary = float(row['salaryBrutto'])
+                                                salary.append(float(row['salaryBrutto']))
                                         except:
-                                                pred_years = float(row['workedYears'])
-                                                Estimate.objects.create(pred_worked_years=pred_years, pred_salary_brutto=0)
+                                                pred_years.append(float(row['workedYears']))
                                         try:
-                                                years = float(row['workedYears'])
+                                                years.append(float(row['workedYears']))
                                         except:
                                                 break
-                                        Earning.objects.create(salary_brutto=salary, worked_years=years)
+                                for i in range(len(pred_years)):
+                                        Estimate.objects.create(pred_worked_years=pred_years[i], pred_salary_brutto=0)
+                                for j in range(len(salary)):
+                                        Earning.objects.create(salary_brutto=salary[j], worked_years=years[j])
                         os.unlink(FILENAME)
                 else:
                         print("The file was not found or added to the database")
