@@ -4,29 +4,29 @@
 {% block jquery %}
 
 var endpoint = '/api/chart/data'
-var defaultData = []
-var labels = []
 
 $.ajax({
     method: "GET",
     url: endpoint,
     success: function(data){
-        labels = data.labels,
         earningData = data.earning,
         estimateData = data.estimate
-
-        console.log(earningData)
-        console.log(estimateData)
         
         for (i = 0; i < earningData.length; i++){
             delete earningData[i].id;
+            earningData[i]['x'] = earningData[i]['worked_years']
+            delete earningData[i]['worked_years']
+            earningData[i]['y'] = earningData[i]['salary_brutto']
+            delete earningData[i]['salary_brutto']
         }
         for (j = 0; j < estimateData.length; j++){
             delete estimateData[j].id;
+            estimateData[j]['x'] = estimateData[j]['pred_worked_years']
+            delete estimateData[j]['pred_worked_years']
+            estimateData[j]['y'] = estimateData[j]['pred_salary_brutto']
+            delete estimateData[j]['pred_salary_brutto']
+            
         }
-
-        console.log(earningData)
-        console.log(estimateData)
 
         setChart()
 
@@ -43,8 +43,14 @@ function setChart(){
         type: 'scatter',
         data: {
             datasets: [{
-                label: 'Scatter Dataset',
-                data: earningData
+                label: 'Earnings Data',
+                data: earningData,
+                backgroundColor: 'orange',
+                pointBackgroundColor: 'orange',
+                pointBorderColor: 'darkorange',
+                fill: false,
+                tension: 0,
+                showLine: false
             }]
         },
         options: {
@@ -60,8 +66,10 @@ function setChart(){
         type: 'scatter',
         data: {
             datasets: [{
-                label: 'Scatter Dataset',
-                data: estimateData
+                label: "Estimate Data",
+                data: estimateData,
+                backgroundColor: 'Aqua',
+                fill: false
             }]
         },
         options: {
@@ -83,11 +91,9 @@ function setChart(){
 <div class='row'>
     <div class='col-sm-12'>
         <div class='col-sm-6'>
-            <p>Earnings</p>
             <canvas id="earningChart" width="400" height="400"></canvas>
         </div>
         <div class='col-sm-6'>
-            <p>Estimate</p>
             <canvas id="estimateChart" width="400" height="400"></canvas>
         </div>
     </div>
