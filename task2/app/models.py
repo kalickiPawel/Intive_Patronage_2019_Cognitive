@@ -10,6 +10,7 @@ class Earning(models.Model):
         return f'{self.salary_brutto} {self.worked_years}'
 
 class Estimate(models.Model):
+    
     pred_worked_years = models.FloatField()
     pred_salary_brutto = models.FloatField()
 
