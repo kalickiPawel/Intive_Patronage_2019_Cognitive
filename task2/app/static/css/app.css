@@ -1,9 +1,10 @@
 .data-table {
     border: 2px solid rgb(0, 60, 255);
     border-radius: 5px;
-    width: 30%;
-    margin: 0px auto;
+    width: 300px;
     float: none;
+    table-layout: fixed;
+    margin: 0px auto;
 }
 .data-table td, .data-table th {
     border: 2px solid rgb(0, 60, 255);
@@ -28,6 +29,8 @@ a:hover {
     color: rgb(0, 164, 240);
     text-decoration : none;
 }
-nav a{
+nav a {
     color: white;
+}.row p {
+    text-align: center;
 }
