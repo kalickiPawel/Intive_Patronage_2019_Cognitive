@@ -17,6 +17,16 @@ $.ajax({
 
         console.log(earningData)
         console.log(estimateData)
+        
+        for (i = 0; i < earningData.length; i++){
+            delete earningData[i].id;
+        }
+        for (j = 0; j < estimateData.length; j++){
+            delete estimateData[j].id;
+        }
+
+        console.log(earningData)
+        console.log(estimateData)
 
         setChart()
 
