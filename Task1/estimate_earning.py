@@ -14,11 +14,13 @@ def estimate_earning(data):
     
     # Create linear regression object
     regr = LinearRegression()
-    
-    # Train the model using the training sets
-    regr.fit(learn_worked_years.reshape(-1, 1), learn_salary_brutto.reshape(-1, 1))
-    
-    # Make predictions using the testing set
-    predicted_salary_brutto = regr.predict(worked_years.reshape(-1, 1))
+    try:
+        # Train the model using the training sets
+        regr.fit(learn_worked_years.reshape(-1, 1), learn_salary_brutto.reshape(-1, 1))
+        
+        # Make predictions using the testing set
+        predicted_salary_brutto = regr.predict(worked_years.reshape(-1, 1))
+    except:
+        print("Error Training the model")
     
     return(predicted_salary_brutto)
