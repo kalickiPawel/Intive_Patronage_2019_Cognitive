@@ -1,17 +1,39 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <table class="data-table">
-        <caption>Lista pobrana z bazy danych</caption>
-        <tr>
-            <th>salary_brutto</th>
-            <th>worked_years</th>
-        </tr>
-        {% for query in estimate %}
-            <tr>
-                <td>{{ query.salary_brutto }}</td>
-                <td>{{ query.worked_years }}</td>
-            </tr>
-        {% endfor %}
-    </table> 
+    <div>
+        <div style="float:left; width: 50%">
+            <table class="data-table">
+                <caption>Lista pobrana z bazy danych</caption>
+                
+                <tr>
+                    <th>salary_brutto</th>
+                    <th>worked_years</th>
+                </tr>
+                
+                {% for query in earnings %}
+                    <tr>
+                        <td>{{ query.salary_brutto }}</td>
+                        <td>{{ query.worked_years }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div style="float:right; width: 50%">
+            <table class="data-table">
+                <caption>Lista przewidywanych wartości</caption>
+                <tr>
+                    <th>pred_worked_years</th>
+                    <th>pred_salary_brutto</th>
+                </tr>
+                {% for query in estimate %}
+                    <tr>
+                        <td>{{ query.pred_worked_years }}</td>
+                        <td>{{ query.pred_salary_brutto }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}
