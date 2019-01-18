@@ -31,6 +31,8 @@ Left table have learning data.
 Right table have the data after Linear Regression process.
 
 Charts: This page have charts, histograms etc.
+Left Chart have informations about training data - point scatter. -> color:orange
+Right Chart have informations about predicting data - point/linear scatter. -> color:aqua
 
 In the scripts folder are two scripts:
 load_data -> loading database from csv files (this make auto remove csv files)
