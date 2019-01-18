@@ -26,7 +26,7 @@ class ChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        labels = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"]
+        labels = ["worked_years", "salary_brutto", "pred_worked_years", "pred_salary_brutto"]
         data = {
                 "labels": labels,
                 "earning": Earning.objects.all(),
